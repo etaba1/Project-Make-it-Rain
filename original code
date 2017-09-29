@@ -1,0 +1,37 @@
+var xPositions = [random(0, 400)];
+var yPositions = [0];
+
+draw = function() { //raindrops not activated by user  
+background(212, 248, 255);        
+
+    for (var b = 0; b < xPositions.length; b++) {
+  
+        noStroke();
+        fill(0, 202, 247);
+        //triangle
+        triangle(xPositions[b]-5, yPositions[b],xPositions[         b],yPositions[b]-10,xPositions[b]+5,yPositions[b]          );
+        //circle
+        ellipse(xPositions[b], yPositions[b], 10, 10               );
+
+        //movement down
+        yPositions[b] += 5;
+        //cycle starting from ending in bottom
+        if (yPositions[b]===500){
+            yPositions[b]=0;
+        }
+    }
+          mouseClicked = function() {
+xPositions.push(random(0, 400));
+yPositions.push(0);
+draw();
+};
+};    
+
+mouseClicked = function() {
+xPositions.push(random(0, 400));
+yPositions.push(0);
+draw();
+};
+
+    
+      
